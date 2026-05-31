@@ -1,0 +1,1 @@
+GitHub Pages-ready package. Upload index.html as a page, or publish README.md/article.md in a repo. Final prose pass generated with OpenRouter model anthropic/claude-opus-4.8, then packaged and QA-checked by Seven.
