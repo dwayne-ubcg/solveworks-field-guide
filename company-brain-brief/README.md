@@ -1,60 +1,37 @@
 # SolveWorks Company Brain Brief
 
-A pre-call briefing asset for prospects who are exploring practical AI agents for their business.
+A public-facing pre-call brief for prospects evaluating practical AI agents and Company Brain systems.
 
-## Download
+**Download the full PDF:** [solveworks-company-brain-brief.pdf](assets/solveworks-company-brain-brief.pdf)
 
-- [SolveWorks Company Brain Brief PDF](assets/solveworks-company-brain-brief.pdf)
+GitHub sometimes previews only the first page of a PDF in chat/link previews. The PDF file itself is 14 pages; the full visual version is embedded below for easy scrolling.
 
-## What this brief explains
+## Full Brief Preview
 
-Most businesses do not need another chatbot. They need an agent that starts with the right operating context: the sources, rules, approvals, tools, QA checks, and correction loops that make work safe and repeatable.
+![Page 1](pages/page-01.png)
 
-This brief introduces the SolveWorks approach:
+![Page 2](pages/page-02.png)
 
-- **Company Brain** — the context and source-truth layer around the agent.
-- **Skillset Packs** — reusable workflow rules, prompts, runbooks, QA checks, examples, and tool commands.
-- **Execution Surfaces** — briefs, dashboards, follow-up drafts, watchdogs, approval queues, research packets, and working outputs.
-- **Safety + Receipts** — read-only/draft-first launches, permission ladders, QA checks, logs, and proof before expanded action.
+![Page 3](pages/page-03.png)
 
-## Brief bio
+![Page 4](pages/page-04.png)
 
-SolveWorks builds practical AI agents for real business workflows. We help owner-led companies turn scattered knowledge, repeated decisions, and manual follow-through into agent-assisted operating systems.
+![Page 5](pages/page-05.png)
 
-We are not here to sell generic automation. We build the working layer that makes agents useful, trusted, and improvable inside daily operations.
+![Page 6](pages/page-06.png)
 
-## Intended use
+![Page 7](pages/page-07.png)
 
-Send this PDF before a discovery call. It is designed to frame the conversation around the workflow, source systems, approval boundaries, and first useful pilot — not to replace a tailored proposal.
+![Page 8](pages/page-08.png)
 
-Pricing and implementation scope are intentionally not included in this pre-call brief.
+![Page 9](pages/page-09.png)
 
-## QA status
+![Page 10](pages/page-10.png)
 
-Final PDF QA completed:
+![Page 11](pages/page-11.png)
 
-- PDF opens successfully.
-- 14 intentional, more spacious pages.
-- No blank/orphan pages in contact-sheet QA.
-- No obvious cut-off text, crowding, or spacing collisions after spacious rebuild.
-- No browser header/footer artifacts in text-layer scan.
-- No pricing leakage.
-- Visual QA passed after Opus 4.8 copy edits, SolveWorks bio addition, and the final spacious 14-page rebuild.
+![Page 12](pages/page-12.png)
 
-## Repository contents
+![Page 13](pages/page-13.png)
 
-- `assets/solveworks-company-brain-brief.pdf` — final sendable PDF.
-- `source/make_company_brain_pdf.py` — ReportLab source generator.
-- `source/solveworks-company-brain-brief-copy.md` — extracted text copy for review/editing.
-- `qa/contact-sheet.jpg` — visual QA contact sheet.
-- `qa/opus-4-8-copy-review.md` — OpenRouter Opus 4.8 red-team copy review.
-
-## Publishing
-
-If you have GitHub CLI auth configured, publish with:
-
-```bash
-gh repo create solveworks-company-brain-brief --public --source . --push --description "SolveWorks Company Brain pre-call prospecting brief"
-```
-
-For a private sharing repo, use `--private` instead of `--public`.
+![Page 14](pages/page-14.png)

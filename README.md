@@ -189,6 +189,5 @@ That's the road in. SolveWorks can help you start there, build the foundation pr
 
 Public-facing pre-call prospecting brief for SolveWorks Company Brain / operational intelligence positioning.
 
-- [Share page](company-brain-brief/)
-- [PDF](company-brain-brief/assets/solveworks-company-brain-brief.pdf)
-
+- [Scrollable GitHub preview](company-brain-brief/)
+- [Direct PDF](company-brain-brief/assets/solveworks-company-brain-brief.pdf)
