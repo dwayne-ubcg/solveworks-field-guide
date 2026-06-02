@@ -4,9 +4,9 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>What We’ve Learned Building Business-Level AI Agents</title>
-  <meta name="description" content="SolveWorks field guide on how our thinking has evolved from chatbots to hardened, secure, business-level AI agents with Company Brain systems, Skillset Packs, QA, permissions, and production operating layers.">
+  <meta name="description" content="A SolveWorks field guide on how our thinking has evolved from asking whether an agent can answer to whether an agent can operate safely inside a real business.">
   <meta property="og:title" content="What We’ve Learned Building Business-Level AI Agents">
-  <meta property="og:description" content="A public SolveWorks field guide for operators, builders, and companies ready to use AI agents at a business standard.">
+  <meta property="og:description" content="A practical field guide for people already building agents and companies ready to start with a hardened, business-level agent.">
   <meta property="og:type" content="article">
   <meta property="og:url" content="https://dwayne-ubcg.github.io/solveworks-field-guide/company-brain-brief/">
   <style>
@@ -18,65 +18,51 @@
   <header>
     <div class="kicker">SolveWorks Field Guide</div>
     <h1>What we’ve learned building business-level AI agents.</h1>
-    <p class="lede">Our thinking has evolved from “can an agent answer?” to “can an agent operate safely inside a real business?” This is the playbook we now build from: Company Brain, hardened runtime, source-truth rules, permission ladders, Skillset Packs, QA receipts, and approval-gated execution from day one.</p>
+    <p class="lede">Our thinking has evolved from a single question — <em>can an agent answer?</em> — to a harder one: <em>can an agent operate safely inside a real business?</em> This is the standard we now build from.</p>
     <div class="byline">By <strong>SolveWorks</strong></div>
     <nav class="toc" aria-label="Article sections">
-      <a href="#why-this-matters">Why this matters</a>
       <a href="#what-changed">What changed</a>
-      <a href="#business-agent">Business-level agent</a>
+      <a href="#business-level">Business-level agents</a>
       <a href="#company-brain">Company Brain</a>
       <a href="#hardening">Hardening</a>
-      <a href="#for-builders">Audit your agent</a>
-      <a href="#for-beginners">First agent setup</a>
-      <a href="#start">Getting started</a>
+      <a href="#skillset-packs">Skillset Packs</a>
+      <a href="#audit-lens">Audit lens</a>
+      <a href="#scope-before-scale">Scope before scale</a>
+      <a href="#standard">The standard</a>
     </nav>
   </header>
 
   <main>
-    <p>When we first started building agents, the obvious question was whether the model could produce useful work. Could it summarize a call? Draft a follow-up? Explain a dashboard? Pull together a brief? Help with a proposal?</p>
+    <p>When we first started building agents, the obvious question was whether the model could produce useful work. Could it summarize a call? Draft a follow-up? Explain a dashboard? Pull together a brief?</p>
     <p>That question still matters, but it is no longer the main one. The real question is whether the agent can operate inside a business with enough context, restraint, security, evidence, and repeatability that the owner can start trusting it.</p>
-    <p>That shift changed how we think about agent builds. A useful agent is not a smarter chat window. It is a business operating layer around a model.</p>
-    <p>The Company Brain is the business context, trusted sources, workflow memory, permission model, and reusable operating knowledge the agent needs before it acts.</p>
-
-    <div class="callout">
-      <strong>What SolveWorks gives the agent from day one</strong>
-      The agent does not start from a blank chat box. It starts with a Company Brain, workflow rules, scoped tools, permission boundaries, QA checks, source-truth logic, and a hardened operating surface designed around the actual work.
-    </div>
-
-    <hr>
-
-    <h2 id="why-this-matters">Why this is worth sharing now</h2>
-    <p>There are two audiences for this.</p>
-    <p>If you already have an agent, or you are knowledgeable enough to build one, this should give you a sharper standard. You may recognize the same failure modes we kept running into: brittle memory, vague tools, duplicate responders, missing logs, unclear source truth, no approval ladder, demos that looked good but could not be trusted in production.</p>
-    <p>If you have not started yet, this should make the path clearer. You do not need to become an AI architect before you get value. You need a first business-level agent that is set up correctly, hardened from the start, and scoped around one real workflow you can actually use.</p>
-    <p><a class="button" href="https://solveworks.io/">Talk to SolveWorks about your first agent</a></p>
+    <p>That shift changed how we build. A useful agent is not a smarter chat window. It is a business operating layer wrapped around a model — and most of the work, and most of the risk, lives in that layer.</p>
 
     <hr>
 
     <h2 id="what-changed">What changed in our thinking</h2>
-    <p>The biggest evolution was realizing that “agent quality” is mostly not one thing. It is a stack.</p>
+    <p>The biggest evolution was realizing that <em>agent quality</em> is not one thing. It is a stack.</p>
     <div class="grid">
       <section class="card"><h3>Early thinking</h3><p>Can the model understand the task and produce a good answer?</p></section>
       <section class="card"><h3>Current thinking</h3><p>Can the agent operate with the right business context, tools, security, approvals, logs, and verification?</p></section>
       <section class="card"><h3>Early risk</h3><p>A weak response, generic output, or a hallucinated answer.</p></section>
-      <section class="card"><h3>Current risk</h3><p>An agent that sounds finished but is connected to the wrong source, wrong permissions, wrong runtime, or no proof.</p></section>
+      <section class="card"><h3>Current risk</h3><p>An agent that <em>sounds</em> finished but is connected to the wrong source, the wrong permissions, the wrong runtime, or no proof at all.</p></section>
     </div>
-    <p>That is why our builds now start with the operating layer, not just the prompt.</p>
+    <p>That second risk is the dangerous one, because it survives a demo. It only surfaces once the agent is touching real work. That is why our builds now start with the operating layer, not the prompt.</p>
 
-    <div class="dark">
-      <h2 id="business-agent">What makes an agent business-level?</h2>
+    <div class="dark" id="business-level">
+      <h2>What makes an agent business-level</h2>
       <p>A business-level agent is not defined by how impressive the demo looks. It is defined by whether the system around it is safe, useful, and verifiable.</p>
       <div class="grid">
-        <section class="card"><h3>It knows the job</h3><p>The agent has a defined role, workflow, success criteria, and escalation path.</p></section>
-        <section class="card"><h3>It knows the business</h3><p>It has access to the right context, not every random note or stale memory.</p></section>
+        <section class="card"><h3>It knows the job</h3><p>A defined role, workflow, success criteria, and escalation path.</p></section>
+        <section class="card"><h3>It knows the business</h3><p>Access to the right context — not every stale note and old chat thread.</p></section>
         <section class="card"><h3>It knows the boundaries</h3><p>Read-only, draft-only, approval-gated, and autonomous actions are separated on purpose.</p></section>
         <section class="card"><h3>It leaves receipts</h3><p>Important work is backed by logs, checks, source links, smoke tests, and proof of what changed.</p></section>
       </div>
     </div>
 
     <h2 id="company-brain">The Company Brain became the missing layer</h2>
-    <p>The model can reason, but the business still has to decide what context matters, which source wins, what the agent can touch, which corrections should become rules, and where outputs should land.</p>
-    <p>We call that layer the Company Brain. It is the operating memory and workflow intelligence around the agent.</p>
+    <p>The model can reason. But the business still has to decide what context matters, which source wins, what the agent is allowed to touch, which corrections should become permanent rules, and where outputs should land.</p>
+    <p>We call that layer the <strong>Company Brain</strong> — the operating memory and workflow intelligence around the agent.</p>
     <div class="grid">
       <section class="card"><h3>Capture</h3><p>Calls, SOPs, docs, dashboards, CRM notes, decisions, and corrections.</p></section>
       <section class="card"><h3>Retrieval</h3><p>Only the facts needed for the job in front of the agent, not a noisy memory dump.</p></section>
@@ -85,81 +71,69 @@
       <section class="card"><h3>Feedback loops</h3><p>Corrections become future rules, not lost chat threads.</p></section>
       <section class="card"><h3>Execution</h3><p>Briefs, dashboards, follow-ups, watchdogs, tasks, and approvals.</p></section>
     </div>
+    <p>Without this layer, an agent restarts cold every time. With it, the agent operates the way the business actually works.</p>
 
     <hr>
 
     <h2 id="hardening">Hardening is not a later phase</h2>
-    <p>A lot of agent projects treat hardening, security, and QA as something to clean up after the prototype works. We think that is backwards.</p>
-    <p>The first version does not need every possible capability. But it should be built to the right standard from the start: correct identity, scoped access, clear boundaries, durable runtime, isolated customer context, safe defaults, and evidence when it does work.</p>
+    <p>Many agent projects treat hardening, security, and QA as cleanup work for after the prototype runs. We think that is backwards.</p>
+    <p>The first version does not need every possible capability. But it should be built to the right standard from the start:</p>
     <div class="proof">
       <div><strong>Identity</strong><span>Correct user, profile, bot/channel, role, and delivery target.</span></div>
       <div><strong>Security</strong><span>Scoped credentials, separated customers, no casual write access.</span></div>
-      <div><strong>Permissions</strong><span>Read, draft, approve, write, and escalate are distinct levels.</span></div>
+      <div><strong>Permissions</strong><span>Read, draft, approve, write, and escalate are distinct levels on a deliberate ladder.</span></div>
       <div><strong>Runtime</strong><span>The agent has a real place to live, with logs and durable schedules.</span></div>
       <div><strong>QA</strong><span>Smoke tests, source checks, leakage scans, and visible receipts.</span></div>
       <div><strong>Monitoring</strong><span>Freshness checks, watchdogs, and failure paths where they matter.</span></div>
     </div>
-    <p><strong>This is the standard that lets a business start using an agent without wondering whether the foundation is going to collapse underneath it.</strong></p>
+    <p>This is the standard that lets a business start using an agent without wondering whether the foundation will collapse underneath it. Retrofitting it later is expensive, and it is often what separates an agent that survives contact with real work from one that quietly gets switched off.</p>
 
     <hr>
 
-    <h2>Skillset Packs turned repeated work into reusable capability</h2>
-    <p>Another major lesson: if an agent has to rediscover the workflow every time, the system is not learning. The work needs to become reusable.</p>
-    <p>Skillset Packs are the repeatable operating knowledge behind the agent: rules, prompts, runbooks, examples, tool commands, QA checks, and escalation paths. They are the difference between an agent improvising and an agent following the way the company actually does the job.</p>
+    <h2 id="skillset-packs">Skillset Packs turn repeated work into reusable capability</h2>
+    <p>Another lesson: if an agent has to rediscover the workflow every time, the system is not learning.</p>
+    <p><strong>Skillset Packs</strong> are the repeatable operating knowledge behind the agent — rules, prompts, runbooks, examples, tool commands, QA checks, and escalation paths. They are the difference between an agent improvising and an agent following the way the company actually does the job.</p>
     <div class="callout">
-      <strong>Corrections should compound</strong>
-      Every correction should make the next run better. If the same mistake keeps being fixed manually, the agent does not need more encouragement. It needs a better rule, skill, source-truth decision, or QA check.
+      <strong>Corrections should compound.</strong>
+      Every correction should make the next run better. If the same mistake keeps getting fixed by hand, the agent does not need more encouragement. It needs a better rule, a clearer source-truth decision, or a new QA check.
     </div>
 
-    <div class="dark" id="for-builders">
-      <h2>For people who already have agents</h2>
-      <p>If you already have an agent, the best use of this article is as an audit lens. Ask whether your current system has the operating pieces that make an agent trustworthy.</p>
+    <div class="dark" id="audit-lens">
+      <h2>If you already have an agent: an audit lens</h2>
+      <p>If you already run an agent, the most useful thing here is a checklist. Ask whether your system has the operating pieces that make an agent trustworthy:</p>
       <ul>
-        <li>Does it know which source of truth wins?</li>
-        <li>Are memory, skills, and temporary task progress separated?</li>
+        <li>Does it know which source of truth wins when data conflicts?</li>
+        <li>Are memory, skills, and temporary task progress kept separate?</li>
         <li>Are write actions approval-gated?</li>
-        <li>Can you prove what the agent did, not just read what it claimed?</li>
+        <li>Can you <em>prove</em> what the agent did — not just read what it claimed?</li>
         <li>Is there exactly one intended responder for any live bot or channel?</li>
         <li>Are customer contexts, credentials, and delivery targets isolated?</li>
         <li>Does every repeated correction improve a durable skill, rule, or checklist?</li>
       </ul>
-      <p>Most agent issues are not “the model is bad.” They are operating-layer issues. Fix those and the same model often becomes dramatically more useful.</p>
+      <p>Most agent problems are not <em>the model is bad.</em> They are operating-layer problems. Fix those, and the same model often becomes dramatically more useful.</p>
     </div>
 
-    <h2 id="for-beginners">For companies that have not started yet</h2>
-    <p>You do not need an agent that does everything. You need one high-value workflow that is frequent, bounded, and useful enough to change the week.</p>
-    <p>The right first agent usually starts as read-only or draft-only. It prepares the briefing, drafts the follow-up, checks the dashboard, watches the exception, summarizes the call, organizes the next step, or routes the decision. Then, once the workflow is proven, permissions can expand carefully.</p>
+    <h2 id="scope-before-scale">If you have not started yet: scope before scale</h2>
+    <p>You do not need an agent that does everything, and you do not need to become an AI architect first. You need one high-value workflow that is frequent, bounded, and useful enough to change the week.</p>
+    <p>The right first agent usually starts read-only or draft-only. It prepares the briefing, drafts the follow-up, checks the dashboard, watches the exception, summarizes the call, or routes the decision. Once the workflow is proven, permissions can expand carefully — one rung at a time.</p>
+    <p>A few patterns that tend to earn their place first:</p>
     <div class="grid">
-      <section class="card"><h3>Executive or owner briefing</h3><p>Calendar, inbox, meeting notes, dashboard exceptions, priorities, and decisions.</p></section>
+      <section class="card"><h3>Executive briefing</h3><p>Calendar, inbox, meeting notes, dashboard exceptions, priorities, decisions.</p></section>
       <section class="card"><h3>Sales follow-up</h3><p>Call summary, buyer pain, next steps, CRM note, approved follow-up draft.</p></section>
-      <section class="card"><h3>Dashboard analyst</h3><p>Freshness checks, KPI explanations, anomalies, and recommended actions.</p></section>
-      <section class="card"><h3>Ops watchdog</h3><p>Recurring checks, stale tasks, order exceptions, and escalations.</p></section>
+      <section class="card"><h3>Dashboard analyst</h3><p>Freshness checks, KPI explanations, anomalies, recommended actions.</p></section>
+      <section class="card"><h3>Ops watchdog</h3><p>Recurring checks, stale tasks, order exceptions, escalations.</p></section>
     </div>
-    <p>The point is not to install “AI everywhere.” The point is to get a business-level agent set up correctly so the company starts learning what practical AI leverage feels like.</p>
+    <p>The point is not to install <em>AI everywhere.</em> The point is to get one business-level agent set up correctly, so the company learns what practical AI leverage actually feels like — on real work, with the foundation already in place.</p>
 
     <hr>
 
-    <h2 id="start">The first engagement should create a working foundation</h2>
-    <p>A good first build should give the agent a head start and give the business confidence. That means the proposal and setup are built around the workflow we map together: what the agent reads, what it produces, what needs approval, what tools it can use, how it is verified, and how it improves.</p>
-    <p>When there is a fit, SolveWorks builds the first agent with the operating layer included from the beginning. The operating layer is not added later as an afterthought.</p>
+    <h2 id="standard">The standard underneath all of it</h2>
+    <p>A first build should give the agent a head start and give the business confidence. That means the work is mapped before it is built: what the agent reads, what it produces, what needs approval, which tools it can use, how it is verified, and how it improves over time.</p>
+    <p>The operating layer — Company Brain, source truth, permission ladder, hardened runtime, QA receipts, approval-gated execution — belongs in the build from the beginning. It is not an afterthought to bolt on once the demo impresses someone.</p>
     <div class="callout">
-      <strong>The simple version</strong>
-      If you are knowledgeable, use this as a standard for auditing your current agent. If you are just getting started, this is why you want someone to set up your first business-level agent properly: hardened, secure, scoped, useful, and ready to compound from the first real workflow.
+      <strong>The standard, in one line</strong>
+      An agent you can hand real work to, because you can see exactly what it touched, why, and with whose permission.
     </div>
-
-    <section class="cta" id="pdf">
-      <h2>Download the companion brief</h2>
-      <p>The article above is the public-facing field guide. The PDF companion is available for pre-call sharing or forwarding.</p>
-      <a class="button" href="assets/solveworks-company-brain-brief.pdf">Download PDF</a>
-      <a class="button secondary" href="https://solveworks.io/">Talk to SolveWorks about your first agent</a>
-    </section>
-
-    <section class="preview" aria-label="PDF preview">
-      <h2>PDF preview</h2>
-      <img src="pages/page-01.png" alt="SolveWorks Company Brain brief cover page">
-      <img src="pages/page-02.png" alt="SolveWorks Company Brain brief page 2">
-      <img src="pages/page-03.png" alt="SolveWorks Company Brain brief page 3">
-    </section>
   </main>
   <footer>© SolveWorks</footer>
 </div>
