@@ -184,3 +184,11 @@ That's usually the first agent. Not the whole company. Not a science project. No
 One real workflow. One clear owner. One safe operating boundary. One useful agent that gets better over time.
 
 That's the road in. SolveWorks can help you start there, build the foundation properly, and grow from a single useful agent into a practical agent fleet.
+
+## SolveWorks Company Brain Brief
+
+Public-facing pre-call prospecting brief for SolveWorks Company Brain / operational intelligence positioning.
+
+- [Share page](company-brain-brief/)
+- [PDF](company-brain-brief/assets/solveworks-company-brain-brief.pdf)
+
